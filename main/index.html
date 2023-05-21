@@ -622,13 +622,13 @@ You're not viewing the latest version.
 <li><strong>npm</strong>: <a class="copyMe" href="#"><code>npm install @aws-lambda-powertools/tracer @aws-lambda-powertools/metrics @aws-lambda-powertools/logger</code></a><img alt="📋" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/1f4cb.svg" title=":clipboard:" /></li>
 </ul>
 <h3 id="lambda-layer">Lambda Layer<a class="headerlink" href="#lambda-layer" title="Permanent link">&para;</a></h3>
-<details class="warning" open="open">
-<summary>As of now, Container Image deployment (OCI) or inline Lambda functions do not support Lambda Layers.</summary>
+<details class="warning">
+<summary>As of now, Container Image deployment (OCI) or inline Lambda functions do not support Lambda Layers</summary>
 </details>
 <p><a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html" target="_blank">Lambda Layer</a> is a .zip file archive that can contain additional code, pre-packaged dependencies, data,  or configuration files. Layers promote code sharing and separation of responsibilities so that you can iterate faster on writing business logic.</p>
 <p>You can include Lambda Powertools Lambda Layer using <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-layers.html#invocation-layers-using" target="_blank">AWS Lambda Console</a>, or your preferred deployment framework.</p>
 <details class="note">
-<summary>Note: Click to expand and copy any regional Lambda Layer ARN</summary>
+<summary>Click to expand and copy any regional Lambda Layer ARN</summary>
 <table>
 <thead>
 <tr>
@@ -741,7 +741,7 @@ You're not viewing the latest version.
 </table>
 </details>
 <details class="note">
-<summary>Note: Click to expand and copy code snippets for popular frameworks</summary>
+<summary>Click to expand and copy code snippets for popular frameworks</summary>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:6"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">SAM</label><label for="__tabbed_1_2">Serverless framework</label><label for="__tabbed_1_3">CDK</label><label for="__tabbed_1_4">Terraform</label><label for="__tabbed_1_5">Pulumi</label><label for="__tabbed_1_6">Amplify</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -774,16 +774,16 @@ You're not viewing the latest version.
 <span class="w">  </span><span class="nt">Properties</span><span class="p">:</span>
 <span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">...</span>
 <span class="hll"><span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">Metadata</span><span class="p p-Indicator">:</span><span class="w"> </span>
-</span><span class="w">      </span><span class="c1"># Manage esbuild properties</span>
-<span class="w">      </span><span class="nt">BuildMethod</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">esbuild</span>
-<span class="w">      </span><span class="nt">BuildProperties</span><span class="p">:</span>
-<span class="w">      </span><span class="nt">Minify</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="w">      </span><span class="nt">External</span><span class="p">:</span>
-<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&#39;@aws-lambda-powertools/commons&#39;</span>
-<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&#39;@aws-lambda-powertools/logger&#39;</span>
-<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&#39;@aws-lambda-powertools/metrics&#39;</span>
-<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&#39;@aws-lambda-powertools/tracer&#39;</span>
-</code></pre></div></td></tr></table></div>
+</span><span class="hll"><span class="w">      </span><span class="c1"># Manage esbuild properties</span>
+</span><span class="hll"><span class="w">      </span><span class="nt">BuildMethod</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">esbuild</span>
+</span><span class="hll"><span class="w">      </span><span class="nt">BuildProperties</span><span class="p">:</span>
+</span><span class="hll"><span class="w">      </span><span class="nt">Minify</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+</span><span class="hll"><span class="w">      </span><span class="nt">External</span><span class="p">:</span>
+</span><span class="hll"><span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&#39;@aws-lambda-powertools/commons&#39;</span>
+</span><span class="hll"><span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&#39;@aws-lambda-powertools/logger&#39;</span>
+</span><span class="hll"><span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&#39;@aws-lambda-powertools/metrics&#39;</span>
+</span><span class="hll"><span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&#39;@aws-lambda-powertools/tracer&#39;</span>
+</span></code></pre></div></td></tr></table></div>
 <p>Check the <a href="https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-sam-cli-using-build-typescript.html">documentation</a> for more details.</p>
 </div>
 <div class="tabbed-block">
@@ -916,8 +916,8 @@ You're not viewing the latest version.
 <span class="p">}</span>
 
 <span class="kr">provider</span><span class="w"> </span><span class="nv">&quot;aws&quot;</span><span class="w"> </span><span class="p">{</span>
-<span class="hll"><span class="w">  </span><span class="na">region</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;{aws::region}&quot;</span>
-</span><span class="p">}</span>
+<span class="w">  </span><span class="na">region</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;{aws::region}&quot;</span>
+<span class="p">}</span>
 
 <span class="kr">resource</span><span class="w"> </span><span class="nc">&quot;aws_lambda_function&quot;</span><span class="w"> </span><span class="nv">&quot;test_lambda&quot;</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="na">filename</span><span class="w">      </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;lambda_function_payload.zip&quot;</span>
@@ -925,8 +925,8 @@ You're not viewing the latest version.
 <span class="w">  </span><span class="na">role</span><span class="w">          </span><span class="o">=</span><span class="w"> </span><span class="p">...</span>
 <span class="w">  </span><span class="na">handler</span><span class="w">       </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;index.handler&quot;</span>
 <span class="w">  </span><span class="na">runtime</span><span class="w">       </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;nodejs16.x&quot;</span>
-<span class="w">  </span><span class="na">layers</span><span class="w">        </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;arn:aws:lambda:{aws::region}:094274105915:layer:AWSLambdaPowertoolsTypeScript:11&quot;</span><span class="p">]</span>
-<span class="w">  </span><span class="na">source_code_hash</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">filebase64sha256</span><span class="p">(</span><span class="s2">&quot;lambda_function_payload.zip&quot;</span><span class="p">)</span>
+<span class="hll"><span class="w">  </span><span class="na">layers</span><span class="w">        </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;arn:aws:lambda:{aws::region}:094274105915:layer:AWSLambdaPowertoolsTypeScript:11&quot;</span><span class="p">]</span>
+</span><span class="w">  </span><span class="na">source_code_hash</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">filebase64sha256</span><span class="p">(</span><span class="s2">&quot;lambda_function_payload.zip&quot;</span><span class="p">)</span>
 <span class="p">}</span>
 </code></pre></div></td></tr></table></div>
 </div>
@@ -1002,8 +1002,8 @@ You're not viewing the latest version.
 ?<span class="w"> </span>Do<span class="w"> </span>you<span class="w"> </span>want<span class="w"> </span>to<span class="w"> </span>configure<span class="w"> </span>advanced<span class="w"> </span>settings?<span class="w"> </span>Yes
 ...
 ?<span class="w"> </span>Do<span class="w"> </span>you<span class="w"> </span>want<span class="w"> </span>to<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>Lambda<span class="w"> </span>layers<span class="w"> </span><span class="k">for</span><span class="w"> </span>this<span class="w"> </span><span class="k">function</span>?<span class="w"> </span>Yes
-?<span class="w"> </span>Enter<span class="w"> </span>up<span class="w"> </span>to<span class="w"> </span><span class="m">5</span><span class="w"> </span>existing<span class="w"> </span>Lambda<span class="w"> </span>layer<span class="w"> </span>ARNs<span class="w"> </span><span class="o">(</span>comma-separated<span class="o">)</span>:<span class="w"> </span>arn:aws:lambda:<span class="o">{</span>aws::region<span class="o">}</span>:094274105915:layer:AWSLambdaPowertoolsTypeScript:11
-❯<span class="w"> </span>amplify<span class="w"> </span>push<span class="w"> </span>-y
+<span class="hll">?<span class="w"> </span>Enter<span class="w"> </span>up<span class="w"> </span>to<span class="w"> </span><span class="m">5</span><span class="w"> </span>existing<span class="w"> </span>Lambda<span class="w"> </span>layer<span class="w"> </span>ARNs<span class="w"> </span><span class="o">(</span>comma-separated<span class="o">)</span>:<span class="w"> </span>arn:aws:lambda:<span class="o">{</span>aws::region<span class="o">}</span>:094274105915:layer:AWSLambdaPowertoolsTypeScript:11
+</span>❯<span class="w"> </span>amplify<span class="w"> </span>push<span class="w"> </span>-y
 
 <span class="c1"># Updating an existing function and add the layer</span>
 ❯<span class="w"> </span>amplify<span class="w"> </span>update<span class="w"> </span><span class="k">function</span>
@@ -1012,15 +1012,15 @@ General<span class="w"> </span>information
 -<span class="w"> </span>Name:<span class="w"> </span>&lt;NAME-OF-FUNCTION&gt;
 ?<span class="w"> </span>Which<span class="w"> </span>setting<span class="w"> </span><span class="k">do</span><span class="w"> </span>you<span class="w"> </span>want<span class="w"> </span>to<span class="w"> </span>update?<span class="w"> </span>Lambda<span class="w"> </span>layers<span class="w"> </span>configuration
 ?<span class="w"> </span>Do<span class="w"> </span>you<span class="w"> </span>want<span class="w"> </span>to<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>Lambda<span class="w"> </span>layers<span class="w"> </span><span class="k">for</span><span class="w"> </span>this<span class="w"> </span><span class="k">function</span>?<span class="w"> </span>Yes
-?<span class="w"> </span>Enter<span class="w"> </span>up<span class="w"> </span>to<span class="w"> </span><span class="m">5</span><span class="w"> </span>existing<span class="w"> </span>Lambda<span class="w"> </span>layer<span class="w"> </span>ARNs<span class="w"> </span><span class="o">(</span>comma-separated<span class="o">)</span>:<span class="w"> </span>arn:aws:lambda:<span class="o">{</span>aws::region<span class="o">}</span>:094274105915:layer:AWSLambdaPowertoolsTypeScript:11
-?<span class="w"> </span>Do<span class="w"> </span>you<span class="w"> </span>want<span class="w"> </span>to<span class="w"> </span>edit<span class="w"> </span>the<span class="w"> </span><span class="nb">local</span><span class="w"> </span>lambda<span class="w"> </span><span class="k">function</span><span class="w"> </span>now?<span class="w"> </span>No
+<span class="hll">?<span class="w"> </span>Enter<span class="w"> </span>up<span class="w"> </span>to<span class="w"> </span><span class="m">5</span><span class="w"> </span>existing<span class="w"> </span>Lambda<span class="w"> </span>layer<span class="w"> </span>ARNs<span class="w"> </span><span class="o">(</span>comma-separated<span class="o">)</span>:<span class="w"> </span>arn:aws:lambda:<span class="o">{</span>aws::region<span class="o">}</span>:094274105915:layer:AWSLambdaPowertoolsTypeScript:11
+</span>?<span class="w"> </span>Do<span class="w"> </span>you<span class="w"> </span>want<span class="w"> </span>to<span class="w"> </span>edit<span class="w"> </span>the<span class="w"> </span><span class="nb">local</span><span class="w"> </span>lambda<span class="w"> </span><span class="k">function</span><span class="w"> </span>now?<span class="w"> </span>No
 </code></pre></div></td></tr></table></div>
 </div>
 </div>
 </div>
 </details>
 <div class="admonition info">
-<p class="admonition-title">Using Powertools via Lambda Layer? Simply add the Powertools utilities you are using as a development dependency.</p>
+<p class="admonition-title">Using Powertools via Lambda Layer? Simply add the Powertools utilities you are using as a development dependency</p>
 </div>
 <details class="question">
 <summary>Want to inspect the contents of the Layer?</summary>
@@ -1195,7 +1195,7 @@ General<span class="w"> </span>information
   <small>
     
       Last update:
-      2023-05-12
+      2023-05-19
     
   </small>
 </div>

@@ -835,7 +835,7 @@ You're not viewing the latest version.
 <span class="w">  </span><span class="nt">ShoppingCartApiFunction</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">Type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AWS::Serverless::Function</span>
 <span class="w">    </span><span class="nt">Properties</span><span class="p">:</span>
-<span class="w">      </span><span class="nt">Runtime</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nodejs16.x</span>
+<span class="w">      </span><span class="nt">Runtime</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nodejs18.x</span>
 <span class="w">      </span><span class="nt">Environment</span><span class="p">:</span>
 <span class="w">        </span><span class="nt">Variables</span><span class="p">:</span>
 <span class="hll"><span class="w">          </span><span class="nt">LOG_LEVEL</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">WARN</span>
@@ -950,8 +950,8 @@ Learn more about <a href="https://middy.js.org/docs/intro/getting-started" targe
 <span class="normal">11</span>
 <span class="normal">12</span>
 <span class="normal">13</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="hll"><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">Logger</span><span class="p">,</span><span class="w"> </span><span class="nx">injectLambdaContext</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;@aws-lambda-powertools/logger&#39;</span><span class="p">;</span>
-</span><span class="hll"><span class="k">import</span><span class="w"> </span><span class="nx">middy</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;@middy/core&#39;</span><span class="p">;</span>
-</span>
+</span><span class="k">import</span><span class="w"> </span><span class="nx">middy</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;@middy/core&#39;</span><span class="p">;</span>
+
 <span class="kd">const</span><span class="w"> </span><span class="nx">logger</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">Logger</span><span class="p">();</span>
 
 <span class="kd">const</span><span class="w"> </span><span class="nx">lambdaHandler</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="p">(</span>
@@ -1889,13 +1889,13 @@ The error will be logged with default key name <code>error</code>, but you can a
 <span class="w">    </span><span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;This is an ERROR log, from the parent logger&quot;</span><span class="p">,</span>
 <span class="w">    </span><span class="nt">&quot;service&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;serverlessAirline&quot;</span><span class="p">,</span>
 <span class="w">    </span><span class="nt">&quot;timestamp&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2021-12-12T22:32:54.670Z&quot;</span><span class="p">,</span>
-<span class="hll"><span class="w">    </span><span class="nt">&quot;aws_account_id&quot;</span><span class="p">:</span><span class="s2">&quot;123456789012&quot;</span><span class="p">,</span>
-</span><span class="hll"><span class="w">    </span><span class="nt">&quot;aws_region&quot;</span><span class="p">:</span><span class="s2">&quot;eu-west-1&quot;</span><span class="p">,</span>
-</span><span class="hll"><span class="w">    </span><span class="nt">&quot;xray_trace_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;abcdef123456abcdef123456abcdef123456&quot;</span>
-</span><span class="hll"><span class="p">}</span>
-</span><span class="hll"><span class="p">{</span>
-</span><span class="hll"><span class="w">    </span><span class="nt">&quot;level&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ERROR&quot;</span><span class="p">,</span>
-</span><span class="hll"><span class="w">    </span><span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;This is an ERROR log, from the child logger&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;aws_account_id&quot;</span><span class="p">:</span><span class="s2">&quot;123456789012&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;aws_region&quot;</span><span class="p">:</span><span class="s2">&quot;eu-west-1&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;xray_trace_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;abcdef123456abcdef123456abcdef123456&quot;</span>
+<span class="p">}</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;level&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ERROR&quot;</span><span class="p">,</span>
+<span class="hll"><span class="w">    </span><span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;This is an ERROR log, from the child logger&quot;</span><span class="p">,</span>
 </span><span class="w">    </span><span class="nt">&quot;service&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;serverlessAirline&quot;</span><span class="p">,</span>
 <span class="w">    </span><span class="nt">&quot;timestamp&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2021-12-12T22:32:54.670Z&quot;</span><span class="p">,</span>
 <span class="w">    </span><span class="nt">&quot;aws_account_id&quot;</span><span class="p">:</span><span class="s2">&quot;123456789012&quot;</span><span class="p">,</span>
@@ -2316,31 +2316,31 @@ If you want to reset the sampling decision and refresh it for each invocation, y
 <span class="normal">22</span>
 <span class="normal">23</span>
 <span class="normal">24</span>
-<span class="normal">25</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;This is an INFO log&quot;</span><span class="p">,</span>
-<span class="w">        </span><span class="nt">&quot;service&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;serverlessAirline&quot;</span><span class="p">,</span>
-<span class="w">        </span><span class="nt">&quot;awsRegion&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;eu-west-1&quot;</span><span class="p">,</span>
-<span class="w">        </span><span class="nt">&quot;correlationIds&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="nt">&quot;awsRequestId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;c6af9ac6-7b61-11e6-9a41-93e812345678&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="nt">&quot;xRayTraceId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;abcdef123456abcdef123456abcdef123456&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="nt">&quot;myCustomCorrelationId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;foo-bar-baz&quot;</span>
-<span class="w">        </span><span class="p">},</span>
-<span class="w">        </span><span class="nt">&quot;lambdaFunction&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;shopping-cart-api-lambda-prod-eu-west-1&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="nt">&quot;arn&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;arn:aws:lambda:eu-west-1:123456789012:function:shopping-cart-api-lambda-prod-eu-west-1&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="nt">&quot;memoryLimitInMB&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">128</span><span class="p">,</span>
-<span class="w">            </span><span class="nt">&quot;version&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;$LATEST&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="nt">&quot;coldStart&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
-<span class="w">        </span><span class="p">},</span>
-<span class="w">        </span><span class="nt">&quot;logLevel&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;INFO&quot;</span><span class="p">,</span>
-<span class="w">        </span><span class="nt">&quot;timestamp&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2021-12-12T23:13:53.404Z&quot;</span><span class="p">,</span>
-<span class="w">        </span><span class="nt">&quot;logger&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="nt">&quot;sampleRateValue&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0.5&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;aws-lambda-powertools-typescript&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="nt">&quot;version&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0.0.1&quot;</span>
-<span class="w">        </span><span class="p">},</span>
-<span class="w">        </span><span class="nt">&quot;awsAccountId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;123456789012&quot;</span>
-<span class="w">    </span><span class="p">}</span>
+<span class="normal">25</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;This is an INFO log&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;service&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;serverlessAirline&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;awsRegion&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;eu-west-1&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;correlationIds&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;awsRequestId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;c6af9ac6-7b61-11e6-9a41-93e812345678&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;xRayTraceId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;abcdef123456abcdef123456abcdef123456&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;myCustomCorrelationId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;foo-bar-baz&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;lambdaFunction&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;shopping-cart-api-lambda-prod-eu-west-1&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;arn&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;arn:aws:lambda:eu-west-1:123456789012:function:shopping-cart-api-lambda-prod-eu-west-1&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;memoryLimitInMB&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">128</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;version&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;$LATEST&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;coldStart&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;logLevel&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;INFO&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;timestamp&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2021-12-12T23:13:53.404Z&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;logger&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;sampleRateValue&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0.5&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;aws-lambda-powertools-typescript&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;version&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0.0.1&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;awsAccountId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;123456789012&quot;</span>
+<span class="p">}</span>
 </code></pre></div></td></tr></table></div>
 </div>
 </div>
@@ -2389,7 +2389,7 @@ If you want to reset the sampling decision and refresh it for each invocation, y
   <small>
     
       Last update:
-      2023-05-12
+      2023-05-19
     
   </small>
 </div>

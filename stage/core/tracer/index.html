@@ -807,7 +807,7 @@ You're not viewing the latest version.
 <span class="w">  </span><span class="nt">HelloWorldFunction</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">Type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AWS::Serverless::Function</span>
 <span class="w">    </span><span class="nt">Properties</span><span class="p">:</span>
-<span class="w">      </span><span class="nt">Runtime</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nodejs16.x</span>
+<span class="w">      </span><span class="nt">Runtime</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nodejs18.x</span>
 <span class="hll"><span class="w">      </span><span class="nt">Tracing</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Active</span>
 </span><span class="w">      </span><span class="nt">Environment</span><span class="p">:</span>
 <span class="w">        </span><span class="nt">Variables</span><span class="p">:</span>
@@ -842,8 +842,8 @@ Learn more about <a href="https://middy.js.org/docs/intro/getting-started" targe
 <span class="normal">14</span>
 <span class="normal">15</span>
 <span class="normal">16</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="hll"><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">Tracer</span><span class="p">,</span><span class="w"> </span><span class="nx">captureLambdaHandler</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;@aws-lambda-powertools/tracer&#39;</span><span class="p">;</span>
-</span><span class="hll"><span class="k">import</span><span class="w"> </span><span class="nx">middy</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;@middy/core&#39;</span><span class="p">;</span><span class="w"> </span><span class="c1">// (1)</span>
-</span>
+</span><span class="k">import</span><span class="w"> </span><span class="nx">middy</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;@middy/core&#39;</span><span class="p">;</span><span class="w"> </span><span class="c1">// (1)</span>
+
 <span class="kd">const</span><span class="w"> </span><span class="nx">tracer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">Tracer</span><span class="p">({</span><span class="w"> </span><span class="nx">serviceName</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;serverlessAirline&#39;</span><span class="w"> </span><span class="p">});</span>
 
 <span class="kd">const</span><span class="w"> </span><span class="nx">lambdaHandler</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="p">(</span>
@@ -1560,7 +1560,7 @@ Support to 3rd party HTTP clients is provided on a best effort basis.</p>
   <small>
     
       Last update:
-      2023-05-12
+      2023-05-19
     
   </small>
 </div>
