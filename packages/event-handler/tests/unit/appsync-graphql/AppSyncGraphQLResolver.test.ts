@@ -33,7 +33,10 @@ describe('Class: AppSyncGraphQLResolver', () => {
 
     // Act && Assess
     await expect(
-      app.resolve(onGraphqlEventFactory('getPost', 'Query'), context)
+      app.resolve(
+        onGraphqlEventFactory({ fieldName: 'getPost', typeName: 'Query' }),
+        context
+      )
     ).rejects.toThrow(
       new ResolverNotFoundException('No resolver found for Query-getPost')
     );
@@ -46,7 +49,10 @@ describe('Class: AppSyncGraphQLResolver', () => {
 
     // Act && Assess
     await expect(
-      app.resolve(onGraphqlEventFactory('addPost', 'Mutation'), context)
+      app.resolve(
+        onGraphqlEventFactory({ fieldName: 'addPost', typeName: 'Mutation' }),
+        context
+      )
     ).rejects.toThrow(
       new ResolverNotFoundException('No resolver found for Mutation-addPost')
     );
@@ -59,7 +65,15 @@ describe('Class: AppSyncGraphQLResolver', () => {
 
     // Act && Assess
     await expect(
-      app.resolve([onGraphqlEventFactory('relatedPosts', 'Query')], context)
+      app.resolve(
+        [
+          onGraphqlEventFactory({
+            fieldName: 'relatedPosts',
+            typeName: 'Query',
+          }),
+        ],
+        context
+      )
     ).rejects.toThrow(
       new ResolverNotFoundException(
         'No batch resolver found for Query-relatedPosts'
@@ -86,7 +100,11 @@ describe('Class: AppSyncGraphQLResolver', () => {
 
     // Act
     const result = await app.resolve(
-      onGraphqlEventFactory('getPost', 'Query', { id: '123' }),
+      onGraphqlEventFactory({
+        fieldName: 'getPost',
+        typeName: 'Query',
+        args: { id: '123' },
+      }),
       context
     );
 
@@ -117,9 +135,13 @@ describe('Class: AppSyncGraphQLResolver', () => {
 
     // Act
     const result = await app.resolve(
-      onGraphqlEventFactory('addPost', 'Mutation', {
-        title: 'Post Title',
-        content: 'Post Content',
+      onGraphqlEventFactory({
+        fieldName: 'addPost',
+        typeName: 'Mutation',
+        args: {
+          title: 'Post Title',
+          content: 'Post Content',
+        },
       }),
       context
     );
@@ -156,9 +178,13 @@ describe('Class: AppSyncGraphQLResolver', () => {
 
     // Act
     const result = await app.resolve(
-      onGraphqlEventFactory('addPost', 'Mutation', {
-        title: 'Post Title',
-        content: 'Post Content',
+      onGraphqlEventFactory({
+        fieldName: 'addPost',
+        typeName: 'Mutation',
+        args: {
+          title: 'Post Title',
+          content: 'Post Content',
+        },
       }),
       context
     );
@@ -187,7 +213,11 @@ describe('Class: AppSyncGraphQLResolver', () => {
     );
 
     // Act
-    const event = onGraphqlEventFactory('getPost', 'Query', { id: '123' });
+    const event = onGraphqlEventFactory({
+      fieldName: 'getPost',
+      typeName: 'Query',
+      args: { id: '123' },
+    });
     const result = await app.resolve(event, context);
 
     // Assess
@@ -239,13 +269,21 @@ describe('Class: AppSyncGraphQLResolver', () => {
 
     // Act
     const resultQuery = await handler(
-      onGraphqlEventFactory('getPost', 'Query', { id: '123' }),
+      onGraphqlEventFactory({
+        fieldName: 'getPost',
+        typeName: 'Query',
+        args: { id: '123' },
+      }),
       context
     );
     const resultMutation = await handler(
-      onGraphqlEventFactory('addPost', 'Mutation', {
-        title: 'Post Title',
-        content: 'Post Content',
+      onGraphqlEventFactory({
+        fieldName: 'addPost',
+        typeName: 'Mutation',
+        args: {
+          title: 'Post Title',
+          content: 'Post Content',
+        },
       }),
       context
     );
@@ -291,8 +329,16 @@ describe('Class: AppSyncGraphQLResolver', () => {
     // Act
     const result = await handler(
       [
-        onGraphqlEventFactory('batchGet', 'Query', { id: 1 }),
-        onGraphqlEventFactory('batchGet', 'Query', { id: 2 }),
+        onGraphqlEventFactory({
+          fieldName: 'batchGet',
+          typeName: 'Query',
+          args: { id: 1 },
+        }),
+        onGraphqlEventFactory({
+          fieldName: 'batchGet',
+          typeName: 'Query',
+          args: { id: 2 },
+        }),
       ],
       context
     );
@@ -333,8 +379,16 @@ describe('Class: AppSyncGraphQLResolver', () => {
     // Act
     const result = await handler(
       [
-        onGraphqlEventFactory('batchGet', 'Query', { id: 1 }),
-        onGraphqlEventFactory('batchGet', 'Query', { id: 2 }),
+        onGraphqlEventFactory({
+          fieldName: 'batchGet',
+          typeName: 'Query',
+          source: { id: 1 },
+        }),
+        onGraphqlEventFactory({
+          fieldName: 'batchGet',
+          typeName: 'Query',
+          source: { id: 2 },
+        }),
       ],
       context
     );
@@ -375,8 +429,16 @@ describe('Class: AppSyncGraphQLResolver', () => {
     // Act
     const result = await handler(
       [
-        onGraphqlEventFactory('batchGet', 'Query', { id: 1 }),
-        onGraphqlEventFactory('batchGet', 'Query', { id: 2 }),
+        onGraphqlEventFactory({
+          fieldName: 'batchGet',
+          typeName: 'Query',
+          source: { id: 1 },
+        }),
+        onGraphqlEventFactory({
+          fieldName: 'batchGet',
+          typeName: 'Query',
+          source: { id: 2 },
+        }),
       ],
       context
     );
@@ -412,9 +474,13 @@ describe('Class: AppSyncGraphQLResolver', () => {
 
     // Act
     await handler(
-      onGraphqlEventFactory('getPost', 'Query', {
-        title: 'Post Title',
-        content: 'Post Content',
+      onGraphqlEventFactory({
+        fieldName: 'getPost',
+        typeName: 'Query',
+        args: {
+          title: 'Post Title',
+          content: 'Post Content',
+        },
       }),
       context
     );
@@ -456,9 +522,13 @@ describe('Class: AppSyncGraphQLResolver', () => {
 
       // Act
       const result = await app.resolve(
-        onGraphqlEventFactory('addPost', 'Mutation', {
-          title: 'Post Title',
-          content: 'Post Content',
+        onGraphqlEventFactory({
+          fieldName: 'addPost',
+          typeName: 'Mutation',
+          args: {
+            title: 'Post Title',
+            content: 'Post Content',
+          },
         }),
         context
       );
@@ -482,7 +552,11 @@ describe('Class: AppSyncGraphQLResolver', () => {
     // Act
     const result = await app.resolve(
       [
-        onGraphqlEventFactory('batchGet', 'Query', { id: '1' }),
+        onGraphqlEventFactory({
+          fieldName: 'batchGet',
+          typeName: 'Query',
+          args: { id: '1' },
+        }),
         {
           key: 'notCompatible',
           type: 'unknown',
@@ -511,8 +585,16 @@ describe('Class: AppSyncGraphQLResolver', () => {
       aggregate: true,
     });
     const events = [
-      onGraphqlEventFactory('batchGet', 'Query', { id: '1' }),
-      onGraphqlEventFactory('batchGet', 'Query', { id: '2' }),
+      onGraphqlEventFactory({
+        fieldName: 'batchGet',
+        typeName: 'Query',
+        args: { id: '1' },
+      }),
+      onGraphqlEventFactory({
+        fieldName: 'batchGet',
+        typeName: 'Query',
+        args: { id: '2' },
+      }),
     ];
 
     // Act
@@ -540,8 +622,16 @@ describe('Class: AppSyncGraphQLResolver', () => {
       raiseOnError: true,
     });
     const events = [
-      onGraphqlEventFactory('batchGet', 'Query', { id: '1' }),
-      onGraphqlEventFactory('batchGet', 'Query', { id: '2' }),
+      onGraphqlEventFactory({
+        fieldName: 'batchGet',
+        typeName: 'Query',
+        args: { id: '1' },
+      }),
+      onGraphqlEventFactory({
+        fieldName: 'batchGet',
+        typeName: 'Query',
+        args: { id: '2' },
+      }),
     ];
 
     // Act
@@ -571,9 +661,21 @@ describe('Class: AppSyncGraphQLResolver', () => {
       raiseOnError: false,
     });
     const events = [
-      onGraphqlEventFactory('batchGet', 'Query', { id: '1' }),
-      onGraphqlEventFactory('batchGet', 'Query', { id: '2' }),
-      onGraphqlEventFactory('batchGet', 'Query', { id: '3' }),
+      onGraphqlEventFactory({
+        fieldName: 'batchGet',
+        typeName: 'Query',
+        args: { id: '1' },
+      }),
+      onGraphqlEventFactory({
+        fieldName: 'batchGet',
+        typeName: 'Query',
+        args: { id: '2' },
+      }),
+      onGraphqlEventFactory({
+        fieldName: 'batchGet',
+        typeName: 'Query',
+        args: { id: '3' },
+      }),
     ];
 
     // Act
@@ -602,9 +704,21 @@ describe('Class: AppSyncGraphQLResolver', () => {
       raiseOnError: true,
     });
     const events = [
-      onGraphqlEventFactory('batchGet', 'Query', { id: '1' }),
-      onGraphqlEventFactory('batchGet', 'Query', { id: '2' }),
-      onGraphqlEventFactory('batchGet', 'Query', { id: '3' }),
+      onGraphqlEventFactory({
+        fieldName: 'batchGet',
+        typeName: 'Query',
+        args: { id: '1' },
+      }),
+      onGraphqlEventFactory({
+        fieldName: 'batchGet',
+        typeName: 'Query',
+        args: { id: '2' },
+      }),
+      onGraphqlEventFactory({
+        fieldName: 'batchGet',
+        typeName: 'Query',
+        args: { id: '3' },
+      }),
     ];
 
     // Act && Assess
@@ -627,7 +741,13 @@ describe('Class: AppSyncGraphQLResolver', () => {
     // Act && Assess
     await expect(
       app.resolve(
-        [onGraphqlEventFactory('batchGet', 'Query', { id: '1' })],
+        [
+          onGraphqlEventFactory({
+            fieldName: 'batchGet',
+            typeName: 'Query',
+            args: { id: '1' },
+          }),
+        ],
         context
       )
     ).rejects.toThrow(
