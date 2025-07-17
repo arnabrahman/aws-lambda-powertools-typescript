@@ -74,20 +74,14 @@ const onSubscribeEventFactory = (
   events: null,
 });
 
-const createEventFactory = ({
-  fieldName,
-  args,
-  parentTypeName,
-  source,
-}: {
-  fieldName: string;
-  args: Record<string, unknown>;
-  parentTypeName: string;
-  source: Record<string, unknown> | null;
-}) => ({
+const createEventFactory = (
+  fieldName: string,
+  args: Record<string, unknown>,
+  parentTypeName: string
+) => ({
   arguments: { ...args },
   identity: null,
-  source: source ? { ...source } : null,
+  source: null,
   request: {
     headers: {
       key: 'value',
@@ -104,17 +98,11 @@ const createEventFactory = ({
   stash: {},
 });
 
-const onGraphqlEventFactory = ({
-  fieldName,
-  typeName,
-  args = {},
-  source = null,
-}: {
-  fieldName: string;
-  typeName: 'Query' | 'Mutation';
-  args?: Record<string, unknown>;
-  source?: Record<string, unknown> | null;
-}) => createEventFactory({ fieldName, args, parentTypeName: typeName, source });
+const onGraphqlEventFactory = (
+  fieldName: string,
+  typeName: 'Query' | 'Mutation',
+  args: Record<string, unknown> = {}
+) => createEventFactory(fieldName, args, typeName);
 
 export {
   onPublishEventFactory,
